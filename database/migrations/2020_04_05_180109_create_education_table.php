@@ -15,7 +15,7 @@ class CreateEducationTable extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->string("name", 100);
+            $table->string("name", 100)->unique();
             $table->enum("status", ["F","NF"]);
         });
     }
