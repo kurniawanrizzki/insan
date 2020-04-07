@@ -6,7 +6,14 @@
 
 require('./bootstrap');
 
+import $ from 'jquery';
+import Stepper from 'bs-stepper'
+window.$ = window.jQuery = $;
+
 window.Vue = require('vue');
+
+//JQuery UI
+import 'jquery-ui/ui/widgets/datepicker.js';
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,4 +36,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+});
+
+// Date Picker
+$(".date").datepicker();
+
+// Stepper 
+var stepperEl = $(".bs-stepper")[0];
+var stepper = new Stepper(stepperEl, {
+    linear: true,
+    animation: true
+});
+
+$(".next-stepper-button").on("click", function() {
+    stepper.next();
+});
+
+$(".previous-stepper-button").on("click", function() {
+    stepper.previous();
 });
