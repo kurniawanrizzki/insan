@@ -35,7 +35,18 @@
         <!-- Income Average Input -->
         <div class="form-group row align-items-center">
             <label for="income_average_input" class="col-md-4 col-form-label">{{ __("income_average_title") }}</label>
-            <!-- TODO Listing Income Average From Config -->
+            <div class="col-md-8" id="income_average_input">
+
+                @foreach(json_decode($sources["incoming"]) as $index => $data)
+
+                <div class="custom-control custom-radio custom-control-inline col-md-5">
+                    <input type="radio" class="custom-control-input" id="{{ $index }}_opt_income_average_input" name="opt_income_average_input" @if($index === 0) {{ "checked" }} @endif>
+                    <label class="custom-control-label" for="{{ $index }}_opt_income_average_input">{{ $data }}</label>
+                </div>
+
+                @endforeach
+
+            </div>
         </div>        
 
         <!-- Number of Siblings Input -->

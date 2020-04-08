@@ -18,11 +18,10 @@ class CreateParentalTable extends Migration
             $table->string("parental_id", 100);
             $table->string("name");
             $table->string("nik", 100);
-            $table->unsignedBigInteger("education")->nullable();
+            $table->string("education")->nullable();
             $table->string("job", 50)->nullable();
             $table->enum("role", ["F", "M"]);
             $table->foreign("parental_id")->references("nkk")->on("home");
-            $table->foreign("education")->references("id")->on("education");
         });
     }
 

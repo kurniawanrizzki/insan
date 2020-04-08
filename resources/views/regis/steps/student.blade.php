@@ -65,13 +65,45 @@
         <!-- Formal Education Input -->
         <div class="form-group row align-items-center">
             <label for="formal_education_input" class="col-md-4 col-form-label">{{ __("education_title", ["type" => "Formal"]) }}</label>
-            <!-- TODO Listing Formal Education -->
+            <div class="col-md-8" id="formal_education_input">
+
+                <div class="custom-control custom-radio custom-control-inline col-md-3">
+                    <input type="radio" class="custom-control-input" id="0f_education_input" name="f_education_option_input" checked>
+                    <label class="custom-control-label" for="0f_education_input">{{ __("empty_title") }}</label>
+                </div>
+
+                @foreach($education["formal"] as $data)
+
+                <div class="custom-control custom-radio custom-control-inline col-md-3">
+                    <input type="radio" class="custom-control-input" id="{{ $data->id }}f_education_input" name="f_education_option_input">
+                    <label class="custom-control-label" for="{{ $data->id }}f_education_input">{{ $data->name }}</label>
+                </div>
+
+                @endforeach
+
+            </div>
         </div>
 
         <!-- Non Formal Education Input -->
         <div class="form-group row align-items-center">
             <label for="non_formal_education_input" class="col-md-4 col-form-label">{{ __("education_title", ["type" => "Non Formal"]) }}</label>
-            <!-- TODO Listing Non Formal Education -->
+            <div class="col-md-8" id="non_formal_education_input">
+                
+                <div class="custom-control custom-radio custom-control-inline col-md-4">
+                    <input type="radio" class="custom-control-input" id="0nf_education_input" name="nf_education_option_input" checked>
+                    <label class="custom-control-label" for="0nf_education_input">{{ __("empty_title") }}</label>
+                </div>
+
+                @foreach($education["informal"] as $data)
+
+                <div class="custom-control custom-radio custom-control-inline col-md-4">
+                    <input type="radio" class="custom-control-input" id="{{ $data->id }}nf_education_input" name="nf_education_option_input">
+                    <label class="custom-control-label" for="{{ $data->id }}nf_education_input">{{ $data->name }}</label>
+                </div>
+
+                @endforeach
+
+            </div>
         </div>
 
         <!-- Next Button -->
